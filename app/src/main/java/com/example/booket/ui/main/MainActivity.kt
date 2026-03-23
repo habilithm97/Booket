@@ -1,4 +1,4 @@
-package com.example.booket
+package com.example.booket.ui.main
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

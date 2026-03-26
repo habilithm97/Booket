@@ -56,4 +56,6 @@ dependencies {
     implementation(libs.okhttp.logging) // 네트워크 요청 및 응답 로그 확인 (디버깅용)
 
     implementation(libs.lifecycle.viewmodel.ktx)
+
+    implementation(libs.androidx.navigation.fragment)
 }

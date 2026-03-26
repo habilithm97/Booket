@@ -54,4 +54,6 @@ dependencies {
     implementation(libs.retrofit) // REST API 통신을 위한 HTTP 클라이언트
     implementation(libs.retrofit.gson) // JSON 데이터를 코틀린 객체로 변환 (Gson Converter)
     implementation(libs.okhttp.logging) // 네트워크 요청 및 응답 로그 확인 (디버깅용)
+
+    implementation(libs.lifecycle.viewmodel.ktx)
 }

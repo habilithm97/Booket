@@ -1,4 +1,4 @@
-package com.example.booket.data.remote.repository
+package com.example.booket.repository
 
 import com.example.booket.data.remote.api.KakaoApi
 import com.example.booket.data.remote.model.BookResponse

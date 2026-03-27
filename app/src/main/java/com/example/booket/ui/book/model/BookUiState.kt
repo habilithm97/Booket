@@ -1,4 +1,4 @@
-package com.example.booket.ui.book
+package com.example.booket.ui.book.model
 
 import com.example.booket.data.remote.model.BookResponse
 

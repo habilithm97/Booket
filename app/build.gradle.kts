@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
 }
-
 val kakaoApiKey: String = project.findProperty("KAKAO_API_KEY") as? String ?: ""
 
 android {
@@ -9,7 +8,6 @@ android {
     compileSdk {
         version = release(36)
     }
-
     defaultConfig {
         applicationId = "com.example.booket"
         minSdk = 24
@@ -21,7 +19,6 @@ android {
 
         buildConfigField("String", "KAKAO_API_KEY", "\"$kakaoApiKey\"")
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -58,4 +55,6 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
 
     implementation(libs.androidx.navigation.fragment)
+
+    implementation(libs.glide)
 }

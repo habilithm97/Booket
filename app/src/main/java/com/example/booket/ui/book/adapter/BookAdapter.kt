@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.booket.R
 import com.example.booket.data.remote.model.Book
 import com.example.booket.databinding.ItemBookBinding
 
@@ -17,6 +19,14 @@ class BookAdapter : ListAdapter<Book, BookAdapter.BookViewHolder>(DIFF_CALLBACK)
             binding.apply {
                 tvTitle.text = item.title
                 tvAuthors.text = item.authors.joinToString(", ")
+
+                Glide.with(ivThumbnail)
+                    .load(item.thumbnail.takeIf { it.isNotBlank() }) // 빈값 방지
+                    .placeholder(R.drawable.loading) // 로딩 중
+                    .error(android.R.drawable.ic_menu_report_image) // 실패 시
+                    .fallback(R.drawable.loading) // null일 때
+                    .centerCrop() // 꽉 채우기
+                    .into(ivThumbnail) // 적용
             }
         }
     }

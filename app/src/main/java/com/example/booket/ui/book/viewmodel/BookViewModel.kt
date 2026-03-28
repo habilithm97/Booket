@@ -3,7 +3,7 @@ package com.example.booket.ui.book.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.booket.repository.BookRepository
-import com.example.booket.ui.book.BookUiState
+import com.example.booket.ui.book.model.BookUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

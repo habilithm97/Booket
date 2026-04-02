@@ -1,7 +1,17 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
 }
-val kakaoApiKey: String = project.findProperty("KAKAO_API_KEY") as? String ?: ""
+
+val localPropertiesFile = rootProject.file("local.properties")
+val kakaoApiKey: String = if (localPropertiesFile.exists()) {
+    val props = Properties()
+    props.load(localPropertiesFile.inputStream())
+    props.getProperty("KAKAO_API_KEY") ?: ""
+} else {
+    ""
+}
 
 android {
     namespace = "com.example.booket"

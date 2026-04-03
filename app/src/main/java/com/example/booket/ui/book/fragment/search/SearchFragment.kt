@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -18,6 +17,7 @@ import com.example.booket.ui.book.adapter.BookAdapter
 import com.example.booket.ui.book.model.BookUiState
 import com.example.booket.ui.book.viewmodel.BookViewModel
 import com.example.booket.ui.book.viewmodel.BookViewModelFactory
+import com.example.booket.utils.showToast
 import kotlinx.coroutines.launch
 
 class SearchFragment : Fragment() {
@@ -70,8 +70,8 @@ class SearchFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 bookViewModel.uiState.collect { state ->
                     when (state) {
-                        is BookUiState.Success -> { bookAdapter.submitList(state.data) }
-                        is BookUiState.Error -> { Toast.makeText(context, state.message, Toast.LENGTH_SHORT).show() }
+                        is BookUiState.Success -> bookAdapter.submitList(state.data)
+                        is BookUiState.Error -> requireContext().showToast(state.message)
                         else -> Unit
                     }
                 }
